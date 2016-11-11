@@ -1,0 +1,3479 @@
+<!--
+  Formación plantilla based on
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ushiro Security Entrenamiento</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/xebialabs.css">
+  <link rel="stylesheet" media="only screen y (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+
+<slide class="title-slide segue nobackground">
+  <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+  <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+  <hgroup class="auto-fadein">
+    <h1 data-config-title><!-- populated from slide_config.json --></h1>
+    <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+    <p data-config-company><!-- populated from slide_config.json --></p>
+  </hgroup>
+</slide>
+
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Agenda</h1>
+        <h2>http://www.ushiro-labs.com</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide>
+  
+    <hgroup>
+      <h2>Agenda</h2>
+      <h3>XL Release Formación</h3>
+    </hgroup>
+    <article ><table>
+<thead>
+<tr>
+<th>Capítulo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Introducción</td>
+<td>Introducción to XebiaLabs y XL Release</td>
+</tr>
+<tr>
+<td>¿Que es xebialabs?</td>
+<td>¿Qué es xebialabs y Cómo crearlo?</td>
+</tr>
+<tr>
+<td>¿Cuales son sus Sistemas?</td>
+<td>Agregando y configurando Tareas</td>
+</tr>
+<tr>
+<td>¿Que es Xl Release?</td>
+<td>Instanciar y ejecutar una liberación</td>
+</tr>
+<tr>
+<td>¿Para que se usa?</td>
+<td>Notificaciones, Jira, XL Deploy</td>
+</tr>
+<tr>
+<td>¿Cual es su importancia?</td>
+<td>Explicando pipeline view</td>
+</tr>
+<tr>
+<td>¿Fortalezas?</td>
+<td>Explicando Vista del calendario</td>
+</tr>
+</tbody>
+</table></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Agenda</h2>
+      <h3>XL Release Formación</h3>
+    </hgroup>
+    <article ><table>
+<thead>
+<tr>
+<th>Capítulo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>¿Como se instala?</td>
+<td>Cómo definir scm Disparadores</td>
+</tr>
+<tr>
+<td>Conociendo el entorno</td>
+<td>Dónde encontrar cuellos de botella</td>
+</tr>
+<tr>
+<td>¿Primeros pasos?</td>
+<td>Jython y REST api puntos de extensión</td>
+</tr>
+<tr>
+<td>¿Primeros pasos?</td>
+<td>Jython y REST api puntos de extensión</td>
+</tr>
+<tr>
+<td>¿Templates?</td>
+<td>Crea tu propio plugin</td>
+</tr>
+</tbody>
+</table></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Introducción</h1>
+        <h2>http://www.ushiro-labs.com</h2>
+      
+    </hgroup>
+  
+</slide>
+<!--
+<slide  >
+    <hgroup>
+      <h2>Introducción</h2>
+      <h3>Ushiro-Labs</h3>
+    </hgroup>
+    <article class="columns-2"><p><img alt="XebiaLabs Logo" src="images/xebialabs_logo.png" /></p>
+	<ul>
+	<li><a href="http://www.ushiro-labs.com" title="Title">http://www.ushiro-labs.com</a></li>
+	<li>Headquartered in Boston, Massachusetts</li>
+	<li>Desarrollo global y oficinas de apoyo en Colombia, Chile, Perú, Bolivia y Argentina</li>
+	</ul>
+	<p><img alt="XebiaLabs World" src="images/xebialabs_world.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+</slide>
+-->
+<slide  >
+  
+    <hgroup>
+      <h2>Introducción</h2>
+      <h3>Productos</h3>
+    </hgroup>
+    <article ><p><img alt="XL Deploy Logo" src="images/product-xl-deploy-small.png" />
+<img alt="XL Release Logo" src="images/product-xl-release-small.png" />
+<img alt="XL TestView Logo" src="images/product-xl-testview-small.png" /></p>
+<ul>
+<li>XL Deploy: Implementación de aplicaciones basada en modelos</li>
+<li>XL Release: Orquestar sus tuberías de entrega continua</li>
+<li>XL TestView: Ejecutar y optimizar secuencias de prueba complejas en herramientas de prueba</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Introducción</h2>
+      <h3>Productos</h3>
+    </hgroup>
+    <article ><p><img alt="XL Release Logo" src="images/product-xl-release-small.png" /></p>
+<ul>
+<li>XL Release:<ul>
+<li><strong>gestionar</strong>, <strong>controlar</strong> y <strong>visualizar</strong> your <strong>Entrega continua</strong> tuberías </li>
+<li>Encontrar y solucionar problemas temprano y <strong>optimizar</strong>el proceso</li>
+</ul>
+</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Introducción</h2>
+      <h3>Productos</h3>
+    </hgroup>
+    <article ><p><img alt="XL Release Logo" src="images/product-xl-release-small.png" /></p>
+<ul>
+<li>Beneficios: <ul>
+<li> Gradualmente <strong> adoptar </strong> Entrega continua: comience hoy sin cambios masivos </li>
+<li> Identifica fácilmente procesos frágiles y <strong> cuellos de botella </strong> </li>
+<li> Los informes completos del panel de control proporcionan los datos que necesita para tomar las mejores decisiones en todo momento </li>
+<li> Simplifique y fomente la <strong> colaboración </strong> </li>
+<li> Deja de administrar las listas de comprobación de la versión y comienza a administrar el proceso de publicación <strong> holístico </strong> </li>
+<li> <strong> Integra </strong> con las otras herramientas de su entorno: La arquitectura abierta funciona con todas sus herramientas </li>
+</ul>
+</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+<!--
+<slide  >
+    <hgroup>
+      <h2>Introducción</h2>
+      <h3>XL Release clientes</h3>
+    </hgroup>
+    <article ><p><img alt="XLR Customers" src="images/xlr_Introduction_customers.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+</slide>
+-->
+<slide>
+    <hgroup>
+      <h2>Introducción</h2>
+      <h3>Tendencias del mercado ARA</h3>
+    </hgroup>
+    <article ><p><img alt="Tendencias del mercado ARA" src="images/xlr_Introduction_ara_market_trends.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+</slide>
+ 
+<slide  >
+  
+    <hgroup>
+      <h2>Introducción</h2>
+      <h3>Visión de conjunto</h3>
+    </hgroup>
+    <article ><ul>
+<li>Modelo y orquestrar el flujo de trabajo de una versión.</li>
+<li>Mezcla de Tareas manuales y automatizadas (objetivo: aumentar el nivel de automatización a lo largo del tiempo).</li>
+</ul>
+<p><img alt="XLR Customers" src="images/xlr_overview.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside> 
+</slide> 
+<slide class="segue dark nobackground" >
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+        <h2>Instalación  </h2> 
+    </hgroup>
+</slide>
+
+<slide>
+  
+    <hgroup>
+      <h2>Instalación</h2> 
+    </hgroup>
+    <article ><ul>
+<li>Ir a <a href="https://xebialabs.com/Productos/xl-release/trial/">https://xebialabs.com/Productos/xl-release/trial/</a></li>
+<li>Registrarte y descargar XL Release para tu distribución</li>
+<li>Despues de registrarte te llegara al email la llave de prueba para 30 Dias</li>
+<li>Finalizada la Descarga descomprimir e ir al archivo /bin y ejecutar el run.exe (windows) o run.sh(unix).</li>
+<li>Inicie la instalación y siga los pasos.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide> 
+    <hgroup>
+      <h2>Instalación</h2> 
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>Navegar a <a href="http://localhost:5516">http://localhost:5516</a></li>
+<li>Iniciar sesión usando<ul>
+<li>Username: admin</li>
+<li>Password: El que ha ingresado en el proceso de instalación</li>
+</ul>
+</li>
+</ul>
+<p><img alt="XLR login" src="images/xlr_login.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+</slide>
+
+
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein"> 
+        <h1>Conociendo el entorno</h1>
+        <h2>http://www.ushiro-labs.com/</h2> 
+    </hgroup> 
+</slide>
+
+<slide> 
+    <hgroup>
+      <h2>Conociendo el Entorno</h2>
+      <h3>Entorno</h3>
+    </hgroup>
+    <article ><p><ul>
+	<li>o</li>
+	<li>o</li>
+	<li>o</li>
+	</ul></p>
+<p><img alt="plantilla Overview" src="images/template-overview.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside> 
+</slide>
+<slide> 
+    <hgroup>
+      <h2>Conociendo el Entorno</h2>
+      <h3>Entorno</h3>
+    </hgroup>
+    <article ><p><ul>
+	<li>o</li>
+	<li>o</li>
+	<li>o</li>
+	</ul></p>
+<p><img alt="plantilla Overview" src="images/template-overview.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside> 
+</slide>
+<slide> 
+    <hgroup>
+      <h2>Conociendo el Entorno</h2>
+      <h3>Entorno</h3>
+    </hgroup>
+    <article ><p><ul>
+	<li>o</li>
+	<li>o</li>
+	<li>o</li>
+	</ul></p>
+<p><img alt="plantilla Overview" src="images/template-overview.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside> 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Configuración</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+<slide> 
+    <hgroup>
+      <h2>Configuración Git</h2> 
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>Git <a href="http://localhost:5516">http://localhost:5516</a></li>
+<li>Iniciar sesión usando<ul>
+<li>Username: admin</li>
+<li>Password: El que ha ingresado en el instalador</li>
+</ul>
+</li>
+</ul>
+<p><img alt="XLR login" src="images/xlr_login.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside> 
+</slide>
+<slide  >
+  
+    <hgroup>
+      <h2>Configuración Nexus</h2> 
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>Nexus <a href="http://localhost:5516">http://localhost:5516</a></li>
+<li>Iniciar sesión usando<ul>
+<li>Username: admin</li>
+<li>Password: El que ha ingresado en el instalador</li>
+</ul>
+</li>
+</ul>
+<p><img alt="XLR login" src="images/xlr_login.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside> 
+</slide>
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Primeros Pasos</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+<slide  >
+  
+    <hgroup>
+      <h2>Plantillas</h2>
+      <h3>Creando una plantilla</h3>
+    </hgroup>
+    <article ><ul>
+<li><strong>Ir a Templates</strong></li>
+<li><strong>Hacer click en New Template</strong> nos abrira un formulario en el que llenaremos los siguientes campos:</li>
+<li><strong>Template Name</strong>Nombre de la plantilla</li>
+<li><strong>Scheduled start date y time</strong>Fecha de inicio y Fecha de finalizacion y cuanto tiempo va a durar en ejecucion esta plantilla.</li>
+<li><strong>Abort on failure</strong>Si se selcciona este checkbox detendra toda la ejecucion cuando una tarea falle.</li>
+<li><strong>Descripción</strong> Aqui clocamos informacion relevante de la plantilla.</li>
+<li><strong>Run Release As User</strong> Usuario y contraseña del xl Release.</li>
+<li><strong>Tags</strong>.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>Definition</h3>
+    </hgroup>
+    <article ><p>plantillass are like <strong>blueprints</strong> for Lanzamientos.</p>
+<ul>
+<li>Model the ideal process of a release flow. </li>
+<li>Describe a procedure that is used to deliver <strong>different</strong> applications</li>
+<li>Describe a procedure that is used to release a <strong>particular</strong> application y that will be reused for different versions of it.</li>
+</ul>
+<p>Use placeholders like <strong>variables</strong> y teams for information about a release that you do not know in advance.</p>
+<p>A <strong>new release</strong> is based on a plantilla. </p>
+<ul>
+<li>Copy of the plantilla y has the values for the variables filled in</li>
+<li>The start y end dates assigned</li>
+<li>The teams populated. </li>
+</ul></article>
+    <aside class="note">
+      <section><p>If you change a plantilla, the running Lanzamientos that were created from it are not updated with the changes. Also, if you change the content or structure of a release, the changes are not automatically propagated to the plantilla that was used to create it.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide> 
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>plantilla overview</h3>
+    </hgroup>
+    <article ><p>The plantilla overview shows all plantillass that you have permission to see.</p>
+		<p><img alt="plantilla Overview" src="images/plantilla-overview.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside> 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>plantilla overview</h3>
+    </hgroup>
+    <article ><p>The following options are available (depending on your permissions):</p>
+<ul>
+<li><strong>View</strong>: Open the plantilla in the Release Flow editor.</li>
+<li><strong>New Release from plantilla</strong>: Create a new release based on this plantilla.</li>
+<li><strong>Copy</strong>: Create a new plantilla that is a copy of this one. When copying a plantilla that contains release Disparadores, all the Disparadores on the copied plantilla will be disabled.</li>
+<li><strong>Delete</strong>: Delete this plantilla.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>Creating a plantilla</h3>
+    </hgroup>
+    <article ><p>To create a new, empty plantilla, click <strong>New plantilla</strong>.</p>
+<p><img alt="Create new plantilla" src="images/create-new-plantilla.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>Creating a plantilla</h3>
+    </hgroup>
+    <article ><ul>
+<li><strong>plantilla name</strong> is the name that identifies the plantilla in the overview.</li>
+<li><strong>Scheduled start date y time</strong>, <strong>Due date y time</strong>, y <strong>Duration</strong> set the <em>planned</em> start date, end date y duration of a plantilla. These dates will be used to display the plantilla in the planner. Only the scheduled start date is myatory, if not set, the due date y the duration will be inferred.</li>
+<li>Tick the <strong>Abort on failure</strong> checkbox if you want the release created from this plantilla to be aborted when a task fails.</li>
+<li>You can enter a <strong>Descripción</strong> to provide more information about the plantilla. Click the text to edit it. The text editor supports <a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax</a>.</li>
+<li><strong>Run Release As User</strong> y <strong>Password for user that runs the release</strong>: The username y password of the XL Release user account that will be used to execute scripts.</li>
+<li><strong>Tags</strong> can be set on the plantilla. The tags are copied to the Lanzamientos that are created from this plantilla, to make it easier to search for them in the release overview.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>plantilla details - Teams</h3>
+    </hgroup>
+    <article ><p>Editing a plantilla is very similar to editing an actual release. However, there are some differences.</p>
+<ul>
+<li>When you create a plantilla, a team called <strong>plantilla owners</strong> is automatically created y populated with the user who created the plantilla. This team has the permissions that are required to edit a plantilla y create a release.</li>
+<li>The <strong>Release Admin</strong> team is not available for plantillass. It is created when a release is created from the plantilla.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>plantilla details - Permissions</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>plantillass have two sets of permissions.<ul>
+<li><strong>Create release</strong>: Users can create a release from this plantilla.</li>
+<li><strong>View plantilla</strong>: Users can see the plantilla in the plantilla overview.</li>
+<li><strong>Edit plantilla</strong>: Users can change the plantilla by adding Tareas y phases y changing them.</li>
+<li><strong>Edit security</strong>: Users can edit teams y permissions on the plantilla.</li>
+</ul>
+</li>
+</ul>
+<p><img alt="plantilla Permissions" src="images/plantilla-permissions.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>plantilla details - Permissions</h3>
+    </hgroup>
+    <article class="columns-2"><p>The second set of permissions are copied when creating a release.</p>
+<p>This allows you to define teams y permissions for the release beforehy.</p>
+<p><img alt="Release Permissions" src="images/release-permissions.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>Starting a release from a plantilla</h3>
+    </hgroup>
+    <article ><p>When you create a release from a plantilla, it is first in a 'planned' state.</p>
+<p>The release owner must do some configuration:</p>
+<ul>
+<li><strong>Variables</strong>: When starting a release, the Create Release page will ask the release owner to assign values to all variables. </li>
+<li><strong>Teams</strong>: In a planned release, the release owner should populate the teams or revise the members of each team.</li>
+<li><strong>Start dates y due dates</strong>: The release owner can optionally set scheduled start dates y due dates on crucial Tareas or on all Tareas.</li>
+<li><strong>Dependencies</strong>: The release owner should revise dependencies on other Lanzamientos. Dependencies can only be set on active Lanzamientos, so they should not be specified in the plantilla.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h2>plantillass</h2>
+        <h3>Exercise: Create a plantilla</h3>
+      
+    </hgroup>
+  
+</slide>
+<slide  >
+  
+    <hgroup>
+      <h2>Plantilla</h2>
+      <h3>Crear</h3>
+    </hgroup>
+    <article ><p><strong>Rollout of the website of a hypothetical corporation.</strong></p>
+<p>This is how we put our website in production at ACME, inc.:</p>
+<ul>
+<li>At the beginning of a release, we notify everyone by email.</li>
+<li>Then we have a kickoff meeting where we decide which features are included.</li>
+<li>The developers prepare y tag the release in the SCM, y build the binary.</li>
+<li>Meanwhile, QA prepares their test campaign.</li>
+<li>QA deploys the binary to their environment y run their test campaign.</li>
+<li>Once QA has validated y the prod environment is ready, the ops deploy to production.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>Exercise: Scenario</h3>
+    </hgroup>
+    <article ><p><strong>Rollout of the website of a hypothetical corporation.</strong></p>
+<p>This is how we put our website in production at ACME, inc.:</p>
+<ul>
+<li>At the beginning of a release, we notify everyone by email.</li>
+<li>Then we have a kickoff meeting where we decide which features are included.</li>
+<li>The developers prepare y tag the release in the SCM, y build the binary.</li>
+<li>Meanwhile, QA prepares their test campaign.</li>
+<li>QA deploys the binary to their environment y run their test campaign.</li>
+<li>Once QA has validated y the prod environment is ready, the ops deploy to production.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>Exercise: Create a plantilla</h3>
+    </hgroup>
+    <article ><ul>
+<li>Create a new plantilla with the following settings<ul>
+<li>plantilla name: <strong>Corporate website</strong></li>
+<li>Descripción: <strong>Rollout of our corporate website deployed at www.acme.com</strong></li>
+<li>Tags: <strong>web</strong> <strong>php</strong></li>
+</ul>
+</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>plantillass</h2>
+      <h3>Exercise: Create a plantilla</h3>
+    </hgroup>
+    <article ><p><img alt="Create plantilla" src="images/create-new-plantilla-exercise.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Tareas</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>plantillass / Phases / Tareas</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li><strong>plantilla</strong>: A <strong>plantilla</strong> is a blueprint for a release. You can use a plantilla to start different Lanzamientos that have the same flow.</li>
+<li><strong>Phase</strong>: A release is divided into <strong>phases</strong>, which represent logical stages inel proceso that must happen in succession.</li>
+<li><strong>Tareas</strong>: Activities in a release are defined as <strong>Tareas</strong>. In XL Release, everything that must be done is defined as a task.</li>
+</ul>
+<p><img alt="plantillass Phases Tareas" src="images/plantillass-phases-Tareas.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task properties</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li><strong>Title</strong>: The task title appears in the top colored bar. To change the title, click it.</li>
+<li><strong>Descripción</strong>: Use the Descripción to describe the purpose of the task y instructions on how to complete it. </li>
+<li><strong>Attachments</strong>: The Attachments section is located below the comments.</li>
+</ul>
+<p><img alt="Task properties" src="images/task-properties.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task properties</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li><strong>Status</strong>: To signal that the timely completion of a task is at risk or that you need some help, without failing the task, use the Status flags in the upper right corner of the task properties. The status flag appears in all overviews to alert the release gestionarr y other users.</li>
+<li><strong>Scheduled start date</strong>: Use the scheduled start date to schedule a task to be performed at an exact time.</li>
+</ul>
+<p><img alt="Task properties" src="images/task-properties.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task properties</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li><strong>Due date</strong>: Set a due date on a task to mark the time that the task must be completed.</li>
+<li><strong>Duration</strong>: Instead of explicitly setting the due date, you can use the duration property to indicate how long a task should last.</li>
+<li><strong>Assigned to</strong>: Indicates the user who is the owner of the task y who is responsible for completing it.</li>
+</ul>
+<p><img alt="Task properties" src="images/task-properties.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task types</h3>
+    </hgroup>
+    <article ><p>There are several types of Tareas in XL Release:</p>
+<ul>
+<li><strong>Human Tareas</strong>: A person performs an action y indicates when it is done; for example, manual Tareas y gates.</li>
+<li><strong>Automated Tareas</strong>: The XL Release execution engine performs an automated script; for example, the XL Deploy task, the script task, webhooks, y the notification task.</li>
+<li><strong>Container Tareas</strong>: Tareas that contain subTareas; for example, the parallel group</li>
+<li>You can also create a <strong>custom task</strong> type.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Precondition</h3>
+    </hgroup>
+    <article ><p>You can controlar the execution flow by setting a precondition on a task. A precondition is an <code>if</code> statement for Tareas, written in Jython script code.</p>
+<ul>
+<li>If the precondition evaluates to <strong>True</strong>, the task is started.</li>
+<li>If the precondition evaluates to <strong>False</strong>, the task is skipped.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Precondition - writing preconditions</h3>
+    </hgroup>
+    <article ><h3>Boolean expression</h3>
+<pre class="prettyprint" data-lang="jython">
+  releaseVariables['jobStatus'] == 'Success'
+</pre>
+
+<p>The task will only be started if the variable <code>jobStatus</code> is equal to ‘Success’.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Precondition - writing preconditions</h3>
+    </hgroup>
+    <article ><h3>Multi-line script</h3>
+<p>If you need a more complicated script, you must set the result variable. For example:</p>
+<pre class="prettyprint" data-lang="jython">
+  print("Executing precondition")
+
+  ...
+
+  result = True
+</pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Lifecycle</h3>
+    </hgroup>
+    <article ><p><img alt="Task Lifecycle" src="images/task-lifecycle.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Lifecycle</h3>
+    </hgroup>
+    <article ><ul>
+<li>Tareas start in <strong>planned</strong> state.</li>
+<li>When a task becomes active:<ul>
+<li>If a scheduled start date is set y this date has not passed yet, the task is <strong>pending</strong></li>
+<li>Otherwise, the task precondition is evaluated (if a precondition has been set on the task). If it evaluates to:<ul>
+<li><strong>True</strong>: The next state is <strong>in progress</strong>.</li>
+<li><strong>False</strong>: The task is <strong>skipped</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Lifecycle - Completed / Skipped Tareas</h3>
+    </hgroup>
+    <article ><ul>
+<li><strong>Completed state</strong>:
+Normally, when you complete a task or when an automated task is performed without errors, the task enters the <strong>completed</strong> state. This is an end state that means that the task has completed successfully.</li>
+<li><strong>Skip a task</strong>: You can also skip a task that was <strong>in progress</strong> or <strong>failed</strong>. In that case, the task goes into the <strong>skipped</strong> state.
+Tareas may also be completed or skipped in advance; </li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Lifecycle - Failed / Aborted Tareas</h3>
+    </hgroup>
+    <article ><ul>
+<li><strong>Fail y abort</strong>: If a user fails a task or an automated task encounters an error, the task goes into the <strong>failed</strong> state. </li>
+<li><strong>Failing state</strong>: This state only applies to a parallel group task that contains subTareas. It indicates that one of the subTareas is in a <strong>failed</strong> state, but that other Tareas are still running. </li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Lifecycle - Completion of gate Tareas</h3>
+    </hgroup>
+    <article ><ul>
+<li>Gate Tareas with no conditions y only dependencies will complete immediately when their dependencies are complete. </li>
+<li>If all dependencies are complete but at least one of the dependencies is an aborted release, the gate goes into a 'failed' state. </li>
+<li>If any conditions are set, the owner of the task must complete the gate task manually.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task Overview Screen</h3>
+    </hgroup>
+    <article ><p>When you log in, you see the task overview, which shows the active Tareas that are assigned to you or to a team that you are in.</p>
+<p><img alt="Task Overview" src="images/task-overview.png" /></p>
+<p>Tareas are grouped by release. To hide the Tareas of a release, click the triangle to the left of it.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task Overview Screen - Details</h3>
+    </hgroup>
+    <article ><p><img alt="Task Details" src="images/task-overview-details.png" /></p>
+<ul>
+<li><strong>Status icon</strong>:<ul>
+<li>Orange icon: The task is currently active.</li>
+<li>Clock icon: The task is waiting to start at a predefined time in the future (task state is 'pending').</li>
+</ul>
+</li>
+<li><strong>Task type</strong> y <strong>Status label</strong>. Each task type has its own icon. For example a person icon identifies the task as a 'manual task'. The status label below it indicates the current execution state of the task. </li>
+<li><strong>Task title</strong> y <strong>assignee</strong>: The task title y the name of the person or team that is responsible for it.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task Overview Screen - Details</h3>
+    </hgroup>
+    <article ><ul>
+<li><strong>Task actions</strong>:<ul>
+<li><strong>Complete</strong>: Complete the task y advance to the next task in the release. You can optionally add a comment when completing a task.</li>
+<li><strong>Skip</strong>: Skip the task y advance to the next task in the release. This action indicates that the work has not been done. You are required to enter a comment when skipping a task.</li>
+<li><strong>Fail</strong>: Put the human task in 'failed' state y notify the release owner. This action halts the release process.</li>
+<li><strong>Abort</strong>: Stops the automated task, put it in 'failed' state y notify the release owner. This action halts the release process. You are required to enter a comment when aborting a task.</li>
+<li><strong>Assign to me</strong>: Assigns the task to you.</li>
+<li><strong>View in Release</strong>: Opens the release flow for the task.</li>
+</ul>
+</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task Overview Screen - Details</h3>
+    </hgroup>
+    <article ><p><img alt="Task Details" src="images/task-overview-details.png" /></p>
+<ul>
+<li><strong>Number of comments</strong>: The number of comments that have been added to the task.</li>
+<li><strong>Phase</strong>: The phase the task is in.</li>
+<li><strong>Started</strong>, <strong>Planned</strong>, or <strong>Scheduled</strong>: If the task has already started, its start date appears. If the task is scheduled to start at a specific future date, that date appears. "Planned" indicates that the task is waiting for a previous task to complete, y "Scheduled" indicates that it is waiting for its start date.</li>
+<li><strong>Due</strong>: If a due date is set on the task, it appears.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task Overview Screen - Details</h3>
+    </hgroup>
+    <article ><p><img alt="Task Details" src="images/task-overview-details.png" /></p>
+<ul>
+<li><strong>Flag</strong>: You can flag a task to indicate that progress was not as smooth as intended y that timely completion may be at risk.<ul>
+<li>Orange flag: Indicates that attention is needed</li>
+<li>Red flag: Indicates timely completion is at risk</li>
+</ul>
+</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Task Overview Screen - Filtering</h3>
+    </hgroup>
+    <article ><p>You can use filtering y search options to query the Tareas in the system.
+Click <strong>Filter options</strong> to toggle the options:</p>
+<ul>
+<li><strong>Active Tareas</strong>: Show Tareas that are currently active. When deselected, you can also see Tareas that are coming up (task state 'planned').</li>
+<li><strong>Assigned to me</strong>: Show Tareas that are assigned directly to you.</li>
+<li><strong>Assigned to my teams</strong>: Show Tareas that are assigned to the teams that you are in.</li>
+<li><strong>Assigned to others</strong>: Show Tareas that are signed to people other than you y teams that you are not in.</li>
+<li><strong>Not assigned</strong>: Show Tareas that are not assigned to anybody.</li>
+</ul>
+<p>To filter on task title, use the <strong>Filter by title</strong> box. Enter part of a task title, release title, task owner, or teams.</p>
+<p>To filter on dates, use the <strong>From</strong> y <strong>To</strong> options.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Restrict Task type access</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>On the <strong>Task access</strong>, screen under <strong>Settings</strong>, you can restrict task types access to certain roles.</li>
+<li>For each <strong>Task type</strong>, you can set it to be either:<ul>
+<li><strong>Available for all users</strong>: all users can create or edit Tareas based on this type.</li>
+<li><strong>Restricted to roles</strong>: only the given roles have access to Tareas based on this type.</li>
+</ul>
+</li>
+<li>If you uncheck <strong>Available for all users</strong> y don't list any roles, the task type will be disabled to all except users who have the <strong>Admin</strong> permission.</li>
+</ul>
+<p><img alt="Task access" src="images/task-access.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h2>Tareas</h2>
+        <h3>Exercise: Add Tareas</h3>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Add Tareas</h3>
+    </hgroup>
+    <article ><p>Add the following 3 phases to the <strong>Corporate Website</strong> plantilla</p>
+<ul>
+<li>Preparation</li>
+<li>Execution</li>
+<li>Rollout</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Add Tareas</h3>
+    </hgroup>
+    <article ><p><img alt="Phases exercise" src="images/phases-exercise.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Add Tareas</h3>
+    </hgroup>
+    <article ><p>Add the following Tareas:</p>
+<ul>
+<li>Preparation - Release start: a notification task</li>
+<li>Preparation - Kickoff meeting: a manual task</li>
+<li>Execution - Tag version y build binary: a manual task</li>
+<li>Execution - Prepare QA campaign: a manual task</li>
+<li>Execution - Run QA tests: a manual task</li>
+<li>Rollout - Coordinate rollout start: a gate</li>
+<li>Rollout - Deploy binary to prod: a manual task</li>
+<li>Rollout - Production check: a manual task</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Add Tareas</h3>
+    </hgroup>
+    <article ><p><img alt="Task exercise" src="images/phases-Tareas-exercise.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Add Tareas</h3>
+    </hgroup>
+    <article ><ul>
+<li>Add a new task of type Parallel group.</li>
+<li>Drag-y-drop the Tareas <code>Tag version y build binary</code> y <code>Prepare QA campaign</code> inside this new task.</li>
+<li>Drag-y drop the parallel group at the beginning of the phase:</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Add Tareas</h3>
+    </hgroup>
+    <article ><p><img alt="Task exercise" src="images/phases-Tareas-parallel-exercise.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Add Teams</h3>
+    </hgroup>
+    <article ><ul>
+<li>Create 3 teams: Dev, QA y Ops;</li>
+<li>Leave them empty (in real life, we would add members in the middle column).</li>
+</ul>
+<p><img alt="Task exercise" src="images/task-exercise-teams.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Task Details</h3>
+    </hgroup>
+    <article ><ul>
+<li>Go back to the release flow y click on <code>Release start</code>.</li>
+<li>Fill in the <code>To</code> (all@acme.com) y <code>Subject</code> (Website release ${version} is starting) fields (don’t worry the email will not be actually sent).</li>
+<li>Click the <code>Assign to me</code> link.</li>
+<li>Note the use of a variable in the subject: <code>${version}</code>.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Task Details</h3>
+    </hgroup>
+    <article ><p><img alt="Task exercise" src="images/task-release-start.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Task Details</h3>
+    </hgroup>
+    <article ><ul>
+<li>Assign the Kickoff meeting task to yourself.</li>
+<li>Assign the other task to the teams using this button in the task details: </li>
+</ul>
+<p><img alt="Task exercise" src="images/task-assign.png" /></p>
+<ul>
+<li>It does not really matter which teams you assign to, but you can try to make it realistic (“Prepare QA campaign” to QA team, etc.)</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Gate Details</h3>
+    </hgroup>
+    <article ><ul>
+<li>A Gate is a checkpoint to ensure that certain conditions are met before the release can continue.</li>
+<li>In our case, add the following checks to the <code>Coordinate rollout start</code>:<ul>
+<li>QA has validated ${version}</li>
+<li>Prod environment is ready</li>
+</ul>
+</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Tareas</h2>
+      <h3>Exercise: Gate Details</h3>
+    </hgroup>
+    <article ><p><img alt="Task exercise" src="images/gate-details.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Lanzamientos</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Start a release</h3>
+    </hgroup>
+    <article ><p>There are 3 ways to start a release:</p>
+<ul>
+<li>Using a <strong>trigger</strong></li>
+<li>Manual create a <strong>New Release</strong> from a plantilla</li>
+<li>Using the REST api (or any other 3rd party tool like Jenkins, etc...)</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Start a release - Trigger</h3>
+    </hgroup>
+    <article ><p>Disparadores offer you an automated way to create y run a release. A trigger is a kind of XL Release plugin executed periodically y able to create y run a release from a plantilla.</p>
+<p>The Disparadores page is accessible by clicking on <strong>Disparadores</strong> from the <strong>Show</strong> menu of your plantilla, y you will be on the Disparadores configuration page. This page is divided in two parts. </p>
+<ul>
+<li><strong>Settings</strong></li>
+<li><strong>Disparadores list</strong></li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Start a release - Trigger</h3>
+    </hgroup>
+    <article class="columns-2"><p><strong>Settings</strong> is used to configure some trigger settings:</p>
+<ul>
+<li><strong>Allow concurrent triggered Lanzamientos</strong>: If this option is unchecked, the Lanzamientos kicked off by the trigger's plantilla will be run <strong>sequentially</strong> y not <strong>concurrently</strong>.</li>
+</ul>
+<p><img alt="Trigger settings" src="images/Disparadores-settings.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Start a release - Trigger</h3>
+    </hgroup>
+    <article ><p>The second part of the Disparadores page, is used to list, create, y update the Disparadores list:</p>
+<p><img alt="Trigger list" src="images/Disparadores-list.png" /></p>
+<p>To add a trigger, select the type of trigger you want to add.</p>
+<p>You will arrive on the creation form, where you will be able to configure the trigger.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Start a release - Trigger</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li><strong>Title</strong>: The name you will use to identify the trigger in the previous the list.</li>
+<li><strong>Release title</strong>: The name given to Lanzamientos you will create with this trigger. This field can contain variables.</li>
+<li><strong>Poll type</strong>: Type of polling interval as repeatable interval in seconds (i.e. each 10 seconds) or cron expression</li>
+<li><strong>Poll interval</strong>: The number of seconds between each execution of the trigger or cron expression</li>
+<li><strong>Enabled</strong>: Define if the trigger is currently active or not.</li>
+</ul>
+<p><img alt="Trigger form" src="images/git-plugin-fields.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Start a release - Manual</h3>
+    </hgroup>
+    <article ><p><img alt="Start a release from a plantilla" src="images/release-flow-header-plantilla.png" /></p>
+<p><strong>New Release</strong>: Create a new release from the plantilla. This is a copy from the plantilla.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Start a release - REST api</h3>
+    </hgroup>
+    <article ><p>First, we need to know the release plantilla ID. One easy way to find this is in the URL for the plantilla itself.</p>
+<p><img alt="URL for plantilla" src="images/plantilla-release-id.png" /></p>
+<p>There is a single API call to start a release from a plantilla.</p>
+<p>For the simple plantilla that we're using in this example, the <code>curl</code> commy to create the release would be:</p>
+<pre class="prettyprint" data-lang="shell">
+    curl -u 'admin:secret'  -v -H "Content-Type: application/json"
+    http://localhost:5516/api/v1/plantillass/Applications/Release2994650/start -i -X POST 
+    -d '{"title": "My Automated Release"}'
+</pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Start a release - REST api</h3>
+    </hgroup>
+    <article ><p>A more complex example, which includes the setting of variables, would look something like this:</p>
+<pre class="prettyprint" data-lang="shell">
+    curl -u 'admin:admin'  -v -H "Content-Type: application/json"
+    http://localhost:5516/api/v1/plantillass/Applications/Release612654/start -i -X POST 
+    -d '{"releaseTitle": "My Automated Release", "releaseVariables": 
+    {"${version}": "1.0", "${name}": "John"}}'
+</pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Lifecycle</h3>
+    </hgroup>
+    <article class="columns-2"><p>A release can go through various stages. First a blueprint of a release is defined as a <strong>plantilla</strong>. From the plantilla, a <strong>planned release</strong> is created. The release is a copy of the plantilla, but it has not started yet. When it is started, the release becomes <strong>active</strong> y the phases y the Tareas are executed. When all is done, the release is <strong>completed</strong>. </p>
+<p><img alt="Release life cycle" src="images/release_lifecycle.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release Summary - Timeline</h3>
+    </hgroup>
+    <article ><p><img alt="Release Summary Timeline" src="images/summary-timeline.png" /></p>
+<p>The complete timeline of the current release appears in orange.</p>
+<p>The timeline start y end dates appear as follows:</p>
+<ul>
+<li>If an item has not started, its <strong>scheduled start date</strong> y <strong>due date</strong> appear.</li>
+<li>If an item is complete, the <strong>actual start y end dates</strong> appear.</li>
+<li>If an item is in progress, the start date that appears is the <strong>actual start date</strong>. </li>
+</ul></article>
+    <aside class="note">
+      <section><p>If the item is on schedule y the scheduled start date is after the current date, then the end date is the <strong>scheduled start date</strong>. Otherwise, the end date is the <strong>current date</strong>.</p>
+<p><strong>Note:</strong> The release phases (thin lines at the top of the main release) are cropped to fit inside the release.</p>
+<p>A release may depend on other Lanzamientos; you can specify this on a gate. If the release has any dependencies on other Lanzamientos, then those Lanzamientos appear above it, under <strong>Depends On</strong>. The Lanzamientos that depend on this release appear below the release in the timeline (if visible) y are summarized in the <strong>Blocks</strong> header.</p>
+<p>The current phase y currently active Tareas appear below the timeline.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release Summary - Task overview</h3>
+    </hgroup>
+    <article ><p><img alt="Release Summary Task overview" src="images/summary-Tareas.png" /></p>
+<p>This widget shows the Tareas that are coming up, that are currently active, y that need to be done. The Tareas are split per team or per user so you can easily see how teams y people are allocated throughout the release.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release Summary - Alerts</h3>
+    </hgroup>
+    <article ><p><img alt="Release Summary Task overview" src="images/summary-alerts.png" /></p>
+<p><strong>Status Flags</strong> are manually set on the release or on a task to indicate that the release needs attention or is at risk.</p>
+<p>The <strong>Dependencies</strong> section shows alerts for dependent Lanzamientos that are not finished.</p>
+<p>Finally, <strong>Delays</strong> shows all Tareas (active y planned) that have a due date in the past.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release Flow editor</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>The <strong>Release Flow</strong> editor in the release summary shows the phases y Tareas in the release y allows you to add, move, edit, y delete them.</li>
+<li>You use the editor for running Lanzamientos y plantillass, though there are some minor differences between the two. In a running release, an orange arrow indicates the current task. Completed Tareas appear in grey y you cannot move or edit them.</li>
+</ul>
+<p><img alt="Release Flow Editor" src="images/release-flow-editor.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release Flow editor</h3>
+    </hgroup>
+    <article ><p>Next to the navigation button, there are action buttons that depend on the release type.</p>
+<p><strong>plantilla</strong></p>
+<p><img alt="Add Phase - New release" src="images/release-flow-header-plantilla.png" /></p>
+<p><strong>Planned release</strong></p>
+<p><img alt="Add Phase - Start - Abort" src="images/release-flow-header-planned.png" /></p>
+<p><strong>Active release</strong></p>
+<p><img alt="Add Phase - Abort - Restart Phase..." src="images/release-flow-header-active.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release Flow editor</h3>
+    </hgroup>
+    <article ><p>The actions that are available are:</p>
+<ul>
+<li><strong>Add Phase</strong>: Add a new phase to the release editor, after the last phase. You can drag the phase y drop it in the correct position.</li>
+<li><strong>New Release</strong>: Create a new release from the plantilla. This is a copy from the plantilla.</li>
+<li><strong>Start</strong>: Start a release that is in the 'planned' state.</li>
+<li><strong>Abort</strong>: Stop a currently active release y discard it. </li>
+<li><strong>Restart Phase...</strong>: Abort the current phase (in an active release) y restarts execution from any phase in the past.</li>
+<li><strong>Export to Excel</strong>: Download the current release in Microsoft Excel format (.xlsx).</li>
+<li><strong>Export</strong>: Download the current plantilla in ZIP format. You can import a plantilla in the plantilla Overview, so you can share plantillass across XL Release servers.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release Flow planner</h3>
+    </hgroup>
+    <article ><p>In the release details, select <strong>Planner</strong> from the <strong>Show</strong> menu to see an interactive Gantt chart. In the planner, you can view y edit the timing of phases y Tareas on the level that you desire.</p>
+<p><img alt="Planner: phases overview" src="images/planner-phases.png" /></p>
+<p>The Gantt chart is a combined timeline of the release, its phases, y the Tareas within. You can optionally set a desired start time, due date, y duration on phases y Tareas. If a task does not have due dates or a duration, it appears on that chart as having a default duration (one hour for manual Tareas y one minute for automated Tareas).</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release Flow planner</h3>
+    </hgroup>
+    <article ><p><img alt="Planner: default sequence" src="images/planner-default-sequence.png" /></p>
+<ul>
+<li>In a phase, Tareas are executed in sequential order. Therefore, in the example above, Task 2 will not start until Task 1 is finished. The grey line connecting the right end of Task 1 to the left side of Task 2 indicates this.</li>
+<li>You can move y resize the Tareas in the diagram for detailed time planning.</li>
+<li>To set the duration of a task, drag its right edge. To set the scheduled start date of a task, drag its left edge.</li>
+</ul></article>
+    <aside class="note">
+      <section><p><strong>Note:</strong> If you set a scheduled start date on a task, the task will not start before that date, even if the previous task is finished.</p>
+<p>To move a task, drag it; this will update the scheduled start date y due date without changing the duration.</p>
+<p>Alternatively, set the scheduled start date or due date by clicking the dates in the <strong>Start date</strong> y <strong>End date</strong> columns, or set the duration by clicking the date in the <strong>Duration</strong> column.</p>
+<p>Moving a task y changing the due date will also affect the start dates of subsequent Tareas in the same phase.</p>
+<p>To remove a start or due date, click the cross next to the date.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release activity logs</h3>
+    </hgroup>
+    <article ><p>In the release details, select <strong>Activity Logs</strong> from the <strong>Show</strong> menu to go to the activity logs, which show everything that has happened to a release. This is an audit trail of who did what y when.</p>
+<p><img alt="Activity Log" src="images/activity-logs.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release activity logs</h3>
+    </hgroup>
+    <article ><p>Click <strong>Filter categories</strong> to select the types of actions that appear:</p>
+<ul>
+<li><strong>Important</strong>: The most important events of all other categories (such as 'Release started' y 'Task failed'). By default, only this category is selected.</li>
+<li><strong>Release life cycle</strong>: Events for the start y end of a release, phases, y Tareas.</li>
+<li><strong>Release edits</strong>: Changes that were made to a release or a plantilla.</li>
+<li><strong>Task edits</strong>: Changes that were made to a single task.</li>
+<li><strong>Task assignment</strong>: A task was assigned to a user.</li>
+<li><strong>Comments</strong>: A comment was added to a task.</li>
+<li><strong>Security</strong>: Changes that were made to the release security settings.</li>
+</ul>
+<p>Start typing in the text field to target a specific user or action. Use the <strong>From</strong> y <strong>To</strong> fields to select a date range.</p>
+<p>To adjust the order of the rows, click the <strong>Date</strong> column header.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release overview</h3>
+    </hgroup>
+    <article ><p>In XL Release, go to <strong>Lanzamientos</strong> &gt; <strong>Overview</strong> to see the list of currently active Lanzamientos.</p>
+<p><img alt="Release Overview" src="images/release-overview.png" /></p>
+<p>The Lanzamientos that you have permission to view y that are currently active appear. This includes Lanzamientos that are planned, in progress y failed. </p>
+<p>Each release appears in a block. The first column contains the release title y the current phase (if the release is active).</p></article>
+    <aside class="note">
+      <section><p>The actions column contains shortcuts to actions that you can perform on a release:</p>
+<ul>
+<li><strong>View</strong>: Open the release details screen on the release flow editor page.</li>
+<li><strong>Start</strong>: Start the release; this is only available if the release is in the 'planned' state.</li>
+<li><strong>Abort</strong>: Aborts the current release.</li>
+</ul>
+<p>The status column shows where the release is in its lifecycle.</p>
+<p>The <strong>Start date</strong> column shows the planned start date if the release is scheduled in the future or the actual start date if it has already started. The <strong>End date</strong> column shows the planned end date if the release is not complete or the actual end date otherwise. In both columns, an overdue date appears in red. <strong>Duration</strong> shows the duration of the release.</p>
+<p>If a status flag is set on the release or on one of its Tareas, it appears at the bottom of the release box.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Release overview</h3>
+    </hgroup>
+    <article class="columns-2"><h3>Filtering Lanzamientos</h3>
+<ul>
+<li><strong>All active Lanzamientos</strong>: Show Lanzamientos that are currently busy (release state 'in progress', 'failing', or 'failed').</li>
+<li><strong>All planned Lanzamientos</strong>: Show Lanzamientos that have been created but that have not started yet (release state 'planned')</li>
+<li><strong>All completed Lanzamientos</strong>: Show Lanzamientos that are complete (release states 'completed' y 'aborted').</li>
+<li><strong>Only my Lanzamientos</strong>: Show Lanzamientos for which you are the release owner.</li>
+<li><strong>Only flagged Lanzamientos</strong>: Only show Lanzamientos that are flagged with a warning message. Use this option to show Lanzamientos that are currently at risk.</li>
+</ul>
+<p><img alt="Release Overview Filtering" src="images/release-overview-filter.png" /></p></article>
+    <aside class="note">
+      <section><p>To filter on release title, use the <strong>Filter by title or tag</strong> box. Enter part of a release title or tag.</p>
+<p>To filter on dates, use the <strong>From</strong> y <strong>To</strong> options.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h2>Lanzamientos</h2>
+        <h3>Exercise: Create a release</h3>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Lanzamientos</h2>
+      <h3>Exercise: Create a release</h3>
+    </hgroup>
+    <article ><ul>
+<li>Go to the release flow y create a new release from it. Click <strong>New Release</strong></li>
+<li>Fill in all required values y click on <strong>Create</strong></li>
+<li>We get back to the Release Flow, but this time there is a <strong>Start</strong> button. Start the release.</li>
+<li>Go to <strong>Lanzamientos &gt; Overview</strong> y make sure you see you're release.</li>
+<li>Once a task starts, the user (y teams) it is assigned to can see it in the <strong>Tareas view</strong>. We can observe that since Kickoff meeting was assigned to ourselves.</li>
+<li>As the release owner, you can complete all the Tareas.</li>
+<li>Note that Tareas won’t start on their own if their start date has not yet been reached.</li>
+<li>Make the release advance until the gate task.</li>
+<li>Open the <strong>Release summary</strong> view y check the task overview y timeline.</li>
+<li>Complete the release.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Integración</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Integración</h2>
+      <h3>Disparadores</h3>
+    </hgroup>
+    <article ><p><img alt="Git" src="images/git.jpg" />
+<img alt="GitHub" src="images/github.jpg" />
+<img alt="GitLab" src="images/gitlab.jpg" />
+<img alt="Nexus" src="images/nexus.jpg" />
+<img alt="SVN" src="images/subversion.jpg" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Integración</h2>
+      <h3>Default plugins</h3>
+    </hgroup>
+    <article ><p><img alt="JIRA" src="images/jira.jpg" />
+<img alt="Remote Script Unix" src="images/unix.jpg" />
+<img alt="Remote Script Windows" src="images/windows-os.jpg" /></p>
+<p><img alt="Webhook" src="images/JSON_vector_logo.png" />
+<img alt="Jenkins" src="images/jenkins.jpg" />
+<img alt="Notification" src="images/email.png" /></p>
+<p><img alt="XL Deploy" src="images/product-xl-deploy-small.png" />
+<img alt="Script" src="images/jython.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Integración</h2>
+      <h3>Community plugins</h3>
+    </hgroup>
+    <article ><p><a href="https://github.com/xebialabs-community/">https://github.com/xebialabs-community/</a>
+<img alt="Community plugins" src="images/community-plugins.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h2>Integración</h2>
+        <h3>Exercise: Add a Jython script</h3>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Integración</h2>
+      <h3>Exercise: Add a Jython script</h3>
+    </hgroup>
+    <article ><ul>
+<li>Add a script task to our <strong>Corporate website</strong> plantilla, at the beginning of the <strong>Preparation</strong> Phase.</li>
+<li>Put the following in the script:</li>
+</ul>
+<pre class="prettyprint" data-lang="jython">
+    print "Hello, we're about to release ${version}"
+</pre>
+
+<ul>
+<li>Create a new release y check the result from the script task.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Pipeline View</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Pipeline View</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>The <strong>Pipeline</strong> view shows an overview of all active Lanzamientos, the phases they are in, y which task is currently active.</p>
+<p><img alt="Pipeline" src="images/pipeline.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Pipeline View</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>A flag appears next to the release title if a status message is set to indicate that the release is at risk.</p>
+<p>All phases appear in a linear fashion. Completed phases have a gray tick mark inside them. An active phase shows the currently active task. Gate Tareas are red, all other Tareas are light blue. If a phase starts or ends with a gate that has not passed yet, it appears in the pipeline view with the gate icon <img alt="Gate icon" src="images/gate-icon.png" />.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Vista del calendario</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Vista del calendario</h2>
+      <h3>Overview</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>The <strong>Calendar</strong> shows an overview of all Lanzamientos on a month-by-month basis. </li>
+<li>The navigation bar offers a convenient way to browse months. By default, it is hidden, you can open it by clicking the gray vertical bar with triangle on the left side of the calendar.</li>
+<li>To see the current month, click <strong>Today</strong> in the top bar.</li>
+</ul>
+<p><img alt="Calendar" src="images/calendar.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Vista del calendario</h2>
+      <h3>Filter options</h3>
+    </hgroup>
+    <article class="columns-2"><p><img alt="Calendar filter options" src="images/calendar-filter-options.png" /></p>
+<ul>
+<li><strong>All active Lanzamientos</strong>: Show Lanzamientos that are currently in progress.</li>
+<li><strong>All planned Lanzamientos</strong>: Show planned Lanzamientos that have not started yet.</li>
+<li><strong>All completed Lanzamientos</strong>: Show Lanzamientos that have completed or that were aborted.</li>
+<li><strong>Only my Lanzamientos</strong>: Show Lanzamientos that you own.</li>
+<li><strong>Only flagged Lanzamientos</strong>: Show Lanzamientos that are flagged with a status message to indicate that they need attention.</li>
+</ul>
+<p>You can also filter by release title or tag by using the text box. This will work in addition to the filters already selected.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Vista del calendario</h2>
+      <h3>Details</h3>
+    </hgroup>
+    <article ><ul>
+<li>Lanzamientos appear as light blue bars on the calendar. The rules governing the release start y end dates are the same as in the release summary.</li>
+<li>Warning icons may appear on the Lanzamientos to indicate that some attention is needed. A flag appears when a status message is set on the task.</li>
+<li>A red icon with exclamation mark appears when there is a dependency conflict, which occurs when a gate task in a release has a dependency on another release, but this release will end later than the start date of the current release. This helps you identify "schedule shift" when one ore more Lanzamientos require the completion of other Lanzamientos.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Vista del calendario</h2>
+      <h3>Details</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>To see more information about a release, click it. It contains:</li>
+<li>The release title</li>
+<li>The currently active phases y Tareas</li>
+<li>A summary of the dependencies on other Lanzamientos:<ul>
+<li><strong>Depends on</strong>: Lanzamientos that must be complete before a gate task in this release can complete</li>
+<li><strong>Depending on this release</strong>: Lanzamientos that are waiting on this release</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Calendar info" src="images/calendar-info.png" /></p></article>
+    <aside class="note">
+      <section><p><strong>Tip:</strong> Hover over a dependent release to see it highlighted in the calendar.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h2>Vista del calendario</h2>
+        <h3>Exercise: Add a release to the calendar</h3>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Vista del calendario</h2>
+      <h3>Exercise: Add a release to the calendar</h3>
+    </hgroup>
+    <article ><p>Add a release to the calendar that start in 2 days from now.</p>
+<p><img alt="Calendar info" src="images/calendar-exercise.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Disparadores</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Introducción</h3>
+    </hgroup>
+    <article ><p>This Capítulo covers 2 aspects:</p>
+<ul>
+<li>What are Disparadores y how can you use them to start a release.</li>
+<li>How to create your own trigger?</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Start a release - Trigger</h3>
+    </hgroup>
+    <article ><p>Disparadores offer you an automated way to create y run a release. A trigger is a kind of XL Release plugin executed periodically y able to create y run a release from a plantilla.</p>
+<p>The Disparadores page is accessible by clicking on <strong>Disparadores</strong> from the <strong>Show</strong> menu of your plantilla, y you will be on the Disparadores configuration page. This page is divided in two parts. </p>
+<ul>
+<li><strong>Settings</strong></li>
+<li><strong>Disparadores list</strong></li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Start a release - Trigger</h3>
+    </hgroup>
+    <article class="columns-2"><p><strong>Settings</strong> is used to configure some trigger settings:</p>
+<ul>
+<li><strong>Allow concurrent triggered Lanzamientos</strong>: If this option is unchecked, the Lanzamientos kicked off by the trigger's plantilla will be run <strong>sequentially</strong> y not <strong>concurrently</strong>.</li>
+</ul>
+<p><img alt="Trigger settings" src="images/Disparadores-settings.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Start a release - Trigger</h3>
+    </hgroup>
+    <article ><p>The second part of the Disparadores page, is used to list, create, y update the Disparadores list:</p>
+<p><img alt="Trigger list" src="images/Disparadores-list.png" /></p>
+<p>To add a trigger, select the type of trigger you want to add.</p>
+<p>You will arrive on the creation form, where you will be able to configure the trigger.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Start a release - Trigger</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li><strong>Title</strong>: The name you will use to identify the trigger in the previous the list.</li>
+<li><strong>Release title</strong>: The name given to Lanzamientos you will create with this trigger. This field can contain variables.</li>
+<li><strong>Poll type</strong>: Type of polling interval as repeatable interval in seconds (i.e. each 10 seconds) or cron expression</li>
+<li><strong>Poll interval</strong>: The number of seconds between each execution of the trigger or cron expression</li>
+<li><strong>Enabled</strong>: Define if the trigger is currently active or not.</li>
+</ul>
+<p><img alt="Trigger form" src="images/git-plugin-fields.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Create your own trigger</h3>
+    </hgroup>
+    <article ><p>Polling an SCM is a styard example of a trigger. But you can also easily define y configure your own Disparadores if you would like to kick off Lanzamientos based on other events. Here's how!</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Defining your trigger</h3>
+    </hgroup>
+    <article ><p>To start, you first need to define your new trigger type in XL Release's type system. You do this by adding the definition to XL Release's type definition file in <code>&lt;XL_RELEASE_HOME&gt;/ext/synthetic.xml</code>:</p>
+<pre class="prettyprint" data-lang="xml">
+    &lt;type type="demo.MyFirstTrigger" extends="xlrelease.ReleaseTrigger" &gt;
+        &lt;!-- if we omit this property, XL Release will look for 'demo/MyFirstTrigger.py', 
+        based on the name of the type --&gt;
+        &lt;property name="scriptLocation" default="demo/find-events-to-trigger-release.py" 
+        hidden="true"/&gt;
+        &lt;!-- don't forget 'category="variables"' here! --&gt;
+        &lt;property name="triggerValueForUse" category="variables" required="false" /&gt;
+    &lt;/type&gt;
+</pre></article>
+    <aside class="note">
+      <section><p>Here, we have defined both a script for the trigger to run, as well as a variable which will be set by the trigger y which we can use when creating the new release. The SVN trigger plugin, for example, makes the commit ID available in this way.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Defining your trigger</h3>
+    </hgroup>
+    <article ><p>Next, we need to create the script that is executed each time the trigger executes. Based on the definition above, we will need to save this script as <code>&lt;XL_RELEASE_HOME&gt;/ext/demo/find-events-to-trigger-release.py</code>:</p>
+<pre class="prettyprint" data-lang="jython">
+    # an example of creating a value for use within your Lanzamientos
+    def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+        return''.join(ryom.choice(chars) for _ in range(size))
+
+    # this is the 'output' variable of the trigger from the type definition
+    triggerValueForUse = id_generator()
+
+    # the trigger will 'fire' when the value of this variable differs from the
+    # value that was set the last time the trigger was invoked
+    Disparadorestate = triggerValueForUse
+</pre></article>
+    <aside class="note">
+      <section><p>Once we've restarted the server to pick up the new trigger definition, you can create Disparadores of this new type attached to our plantillass.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Using your trigger</h3>
+    </hgroup>
+    <article ><p>We'll define a trivial plantilla with one task, which simply displays the value of triggerValueForUse set by the trigger. We will do this by defining a regular plantilla variable <code>${valFromTrigger}</code>, y by setting its value automatically whenever the trigger kicks off a new release from the plantilla.</p>
+<p><img alt="plantilla variable" src="images/task-to-showcase-value.png" /></p>
+<p>We'll configure the trigger by using the dropdown on the plantilla to switch from the Release Flow view to the Disparadores view.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Using your trigger</h3>
+    </hgroup>
+    <article class="columns-2"><p>We can now define our new custom trigger. Note how we assign the <code>${triggerValueForUse}</code> value set by the trigger to the plantilla variable <code>${valFromTrigger}</code>. We could also use <code>${triggerValueForUse}</code> in the Release Title field, of course:</p>
+<p><img alt="Trigger definition" src="images/trigger-definition.png" /></p></article>
+    <aside class="note">
+      <section><p>To activate the trigger, we need to create one release from the plantilla via the XL Release UI. Then the trigger will be running in the background (unless we disable it, of course), y will set the value of <code>Disparadorestate</code> each time it is run.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Using your trigger</h3>
+    </hgroup>
+    <article ><p>Whenever that value is different from the previous trigger invocation (which in the case of our example should be every time), a new release using our plantilla will be created y started, with the <code>${valFromTrigger}</code> plantilla variable set to the value returned from the trigger. In our simple example, the release will finish almost immediately, showing the value set by the trigger:</p>
+<p><img alt="Value set by target" src="images/values-from-trigger-executing.png" /></p></article>
+    <aside class="note">
+      <section><p>Points to remember:</p>
+<ul>
+<li>Ensure that <code>Disparadorestate</code> is set correctly inside your trigger script: it should be set to a different value from the previous execution exactly when you want the trigger to "fire" y create y start a new release.</li>
+<li>To disable a trigger, simply uncheck the <strong>Enabled</strong> checkbox on the trigger configuration page.</li>
+<li>To delete a trigger, click the X on the right hy side of the trigger configuration page.</li>
+<li>You can see all Lanzamientos created by a trigger by clicking on the <strong>related Lanzamientos</strong> link on the trigger configuration page</li>
+</ul></section>
+    </aside>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h2>Disparadores</h2>
+        <h3>Exercise: Add a CRON trigger</h3>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Exercise: Add a CRON trigger</h3>
+    </hgroup>
+    <article ><ul>
+<li>Add a trigger to the <strong>Corporate website</strong> so that it starts a new release every 10 minutes</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Disparadores</h2>
+      <h3>Exercise: Add a CRON trigger</h3>
+    </hgroup>
+    <article ><p><img alt="Trigger exercise" src="images/trigger-exercise.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Reporting</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Dashboard</h3>
+    </hgroup>
+    <article ><p>To access the XL Release dashboard, select <strong>Reports</strong> &gt; <strong>Dashboard</strong> from the top menu.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Dashboard - Lanzamientos at risk</h3>
+    </hgroup>
+    <article ><p>The Lanzamientos at risk section shows the active Lanzamientos that have been flagged. Click a release to open its summary.</p>
+<p><img alt="Lanzamientos at risk" src="images/dashboard-Lanzamientos-at-risk.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Dashboard - Release efficiency</h3>
+    </hgroup>
+    <article ><p>The Release efficiency section breaks down the task count y total duration between manual y automated Tareas. It provides an overview of your overall level of automation during the selected time period.</p>
+<p><img alt="Lanzamientos efficiency" src="images/dashboard-release-efficiency.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Dashboard - Average release duration y automation</h3>
+    </hgroup>
+    <article class="columns-2"><p>The Average release duration y automation chart also shows the percentage of automation, but aggregated per month. Use it to assess whether automation improves over time.</p>
+<p><img alt="Average release duration y automation" src="images/dashboard-release-duration.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Dashboard - Lanzamientos per month</h3>
+    </hgroup>
+    <article class="columns-2"><p>The Lanzamientos per month bar chart shows how many Lanzamientos were finished in a particular month.</p>
+<p><img alt="Lanzamientos per month" src="images/dashboard-release-number.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Dashboard - Top 10 longest Lanzamientos y phases</h3>
+    </hgroup>
+    <article ><p>Top 10 longest Lanzamientos shows which release took most time to be completed. For an overview of which parts of the release took most time, there is the Top 10 longest phases table. The release names in these tables are hyperlinks to the Lanzamientos' flow editor.</p>
+<p><img alt="Top-10 Longest Lanzamientos y Phases" src="images/dashboard-longest-Lanzamientos-phases.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Dashboard - Top 10 longest Tareas</h3>
+    </hgroup>
+    <article ><p>Top 10 longest Tareas is an overview of which Tareas took most time to be completed y who was responsible for each task.</p>
+<p><img alt="Top-10 Longest Tareas" src="images/dashboard-longest-Tareas.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Dashboard - Top 10 people most involved</h3>
+    </hgroup>
+    <article ><p>The table Top 10 people most involved shows which users have spent the most time y hyled the most Tareas in the selected period.</p>
+<p><img alt="Most involved people" src="images/dashboard-most-involved-people.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Release automation</h3>
+    </hgroup>
+    <article ><p>To access the XL Release release automation report, select <strong>Reports</strong> &gt; <strong>Release automation</strong> from the top menu.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Release automation - Release duration y automation</h3>
+    </hgroup>
+    <article ><p>Release duration shows the average release duration by month.</p>
+<p>Release automation shows the percentage of automated Lanzamientos (that is, those that contain at least one automated task) by month.</p>
+<p><img alt="Release duration y automation" src="images/reports-release-duration-y-automation.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Release automation - Number of Tareas</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>The Number of Tareas chart shows the last 20 Lanzamientos, with number of Tareas, split between automated Tareas y manual Tareas. It shows whether your Lanzamientos are becoming more or less automated.</li>
+</ul>
+<p><img alt="Number of Tareas" src="images/reports-number-of-Tareas.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Release automation - Time spent</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>The Time spent chart shows the last 20 Lanzamientos, with task duration split between automated Tareas y manual Tareas. It shows you where you are spending time in the release.</li>
+</ul>
+<p><img alt="Time spent" src="images/reports-time-spent.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Release value stream</h3>
+    </hgroup>
+    <article ><p>To access the XL Release release value stream report, select <strong>Reports</strong> &gt; <strong>Release value stream</strong> from the top menu.</p>
+<p>The release value stream report focuses on the quality of <em>completed</em> Lanzamientos.</p>
+<p><img alt="Release Value Stream" src="images/release-value-stream.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Release value stream</h3>
+    </hgroup>
+    <article ><p>For each phase, an indicator is built based on these metrics:</p>
+<ul>
+<li>Flag count: Incremented each time a task is flagged</li>
+<li>Failure count: Incremented each time a task fails</li>
+<li>Delayed count: The number of Tareas that completed after their due date</li>
+</ul></article>
+    <aside class="note">
+      <section><p>A phase is considered "critical" when the sum of these three counts is strictly greater than 6 (this value can be customized in the Reports Settings screen. The phase is colored in red y the number of critical phases is displayed in the release header. Each phase also displays its total number of Tareas y the value of each criticality metric (if non-zero). At the bottom of the release, the time proportion of each phase is shown, both as a duration y as a percentage of the total release time.</p></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Release value stream - Completed Lanzamientos</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>Clicking on a release opens its flow editor, which is slightly different for completed Lanzamientos.</li>
+<li>Instead of the assignee, each task shows its individual values for the criticality metrics (if non-zero). The failure count is color-coded: yellow if there were at least two failures, y red if there were at least four (these values can be customized in the Reports Settings screen).</li>
+</ul>
+<p><img alt="Completed release" src="images/completed-release.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Release value stream - Filter Tareas</h3>
+    </hgroup>
+    <article ><p>Tareas can be filtered by criticality metric (with the fourth option "clean Tareas" referring to Tareas that have all metrics to zero):</p>
+<p><img alt="Completed release filter" src="images/completed-release-filter.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Export hooks</h3>
+    </hgroup>
+    <article ><p>You can use the <em>export hook</em> feature to configure XL Release to run a Jython script for every release that is about to be archived.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Export hooks - Step 1 Define a new export hook</h3>
+    </hgroup>
+    <article ><p>Add a new synthetic type to <code>conf/synthetic.xml</code>. For example:</p>
+<pre class="prettyprint" data-lang="xml">
+    &lt;type type="acme.ElasticSearchExportHook" extends="xlrelease.ExportHook"&gt;
+      &lt;property name="url" category="input" label="Elastic search server URL"/&gt;
+    &lt;/type&gt;
+</pre>
+
+<p>Add <code>url</code> as a property of this synthetic type. This allows you to change the value in the user interface y use it in the Jython script. You can also add more properties, such as a username or password.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Export hooks - Step 2 Create a Jython script</h3>
+    </hgroup>
+    <article ><p>The Jython script defines actions that you want to perform with release. The scope contains following variables:</p>
+<ul>
+<li><code>exportHook</code>: An object of type <code>ExportHook</code></li>
+<li><code>release</code>: An object of type <code>Release</code></li>
+<li><code>releaseJson</code>: A string with serialized release</li>
+<li><code>logger</code>: An object of type <code>org.slf4j.Logger</code></li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Export hooks - Step 2 Create a Jython script</h3>
+    </hgroup>
+    <article ><p>Store scripts in the <code>ext</code> directory, which is a part of the classpath. By default, the export hook tries to locate <code>prefix/TypeName.py</code> on the classpath. In the case of this example, it will be <code>acme/ElasticSearchExportHook.py</code>.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Export hooks - Step 2 Create a Jython script</h3>
+    </hgroup>
+    <article ><p>Alternatively, you can set a customized script path in the <code>scriptLocation</code> property of each export hook:</p>
+<pre class="prettyprint" data-lang="xml">
+    &lt;type type="acme.ElasticSearchExportHook" extends="xlrelease.ExportHook"&gt;
+      &lt;property name="url" category="input" label="Elastic search server URL"/&gt;
+      &lt;property name="scriptLocation" hidden="true" default="mypath/MyScript.py" /&gt;
+    &lt;/type&gt;
+</pre>
+
+<p>However, it is recommended that you use the default location of <code>ext</code>.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Reporting</h2>
+      <h3>Export hooks - Step 3 Create an instance of the export hook</h3>
+    </hgroup>
+    <article ><p>In XL Release, go to <strong>Settings</strong> &gt; <strong>Configuration</strong> y configure an instance of your export hook.</p>
+<ul>
+<li><strong>Order of execution</strong>: All export hooks are executed for all completed Lanzamientos just before they are archived. The order of execution is not guaranteed.</li>
+<li><strong>Failure hyling</strong>: Each export hook has only one attempt to perform actions on the release. If it fails, it is not retried.</li>
+<li><strong>Sample export hook</strong>: To learn more about export hooks, download the sample export hook from <a href="https://github.com/xebialabs/xl-release-samples/tree/master/elastic-search-export-hook">GitHub</a> y customize it as desired.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Jython y REST API</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>REST API</h3>
+    </hgroup>
+    <article ><p>The REST API can be accessed via a URL of the form http://[host]:[port]/[context-root]/[service-resource]. 
+For example: </p>
+<pre><code>GET http://localhost:5516/api/v1/plantillass/Applications/Release2994650
+</code></pre>
+<p>The following api objects are available:</p>
+<ul>
+<li>phases</li>
+<li>Lanzamientos</li>
+<li>Tareas</li>
+<li>plantillass</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>REST API - phases</h3>
+    </hgroup>
+    <article ><p><img alt="Phases" src="images/rest-api-phases.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>REST API - Lanzamientos</h3>
+    </hgroup>
+    <article ><p><img alt="Lanzamientos" src="images/rest-api-Lanzamientos.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>REST API - Tareas</h3>
+    </hgroup>
+    <article ><p><img alt="Tareas" src="images/rest-api-Tareas.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>REST API - plantillass</h3>
+    </hgroup>
+    <article ><p><img alt="plantillass" src="images/rest-api-plantillass.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>Using the XL Release API in scripts</h3>
+    </hgroup>
+    <article ><p>XL Release exposes an API that developers can use to manipulate Lanzamientos y Tareas.
+The Jython API can be accessed from both Script Tareas y plugin scripts. </p>
+<p>Example for a script task:</p>
+<pre class="prettyprint" data-lang="jython">
+    task = getCurrentTask()
+    comment = Comment()
+    comment.setComment("Hello World!")
+    taskApi.commentTask(task.id, comment)
+</pre></article>
+    <aside class="note">
+      <section><p>A Release User account has to be set in order to use XL Release's API. We have to explicitly say under which user name the script will be run. Because the API gives access to Lanzamientos y Tareas, XL Release needs to check someone's credentials in order to check if certain operations are allowed. To set such a user, go to the <strong>Release Properties</strong> page y find the properties <strong>Run scripts as user</strong> y <strong>Password</strong></p></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>Additional Jython helper functions</h3>
+    </hgroup>
+    <article ><p>Additional to the <strong>Jython API</strong>, the following helper functions are also available in Script Tareas y Python scripts for plugin Tareas.</p>
+<ul>
+<li><code>getCurrentTask()</code>: Returns the current task - a Task object</li>
+<li><code>getCurrentPhase()</code>: Returns the current phase - a Phase object</li>
+<li><code>getCurrentRelease()</code>: Returns the current release - a Release object</li>
+<li><code>getTareasByTitle(taskTitle, phaseTitle = None, releaseId = None)</code>: Finds Tareas by title - an array of Task objects</li>
+<li><code>getPhasesByTitle(phaseTitle, releaseId = None)</code>: Finds phases by title - An array of Phase objects</li>
+<li><code>getLanzamientosByTitle(releaseTitle)</code>: Finds Lanzamientos by title - An array of Release objectss</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>Declare custom REST endpoints in XL Release</h3>
+    </hgroup>
+    <article ><p>You can extend XL Release by creating new endpoints backed by Jython scripts. This feature can be useful for example to integrate with other systems.</p>
+<p>To declare new endpoints you need to put a file <code>xl-rest-endpoints.xml</code> in the classpath of your XL Release server: either in a <code>jar</code> file of your custom plugin or in <code>SERVER_INSTALLATION/ext</code> folder:</p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;endpoints xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.ushiro-labs.com//deployit/endpoints"
+           xsi:schemaLocation="http://www.ushiro-labs.com//deployit/endpoints endpoints.xsd"&gt;
+    &lt;endpoint path="/test/demo" method="GET" script="demo.py" /&gt;
+    &lt;!-- ... more endpoints can be declared in the same way ... --&gt;
+&lt;/endpoints&gt;
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>Declare custom REST endpoints in XL Release</h3>
+    </hgroup>
+    <article ><p>After processing this file, XL Release creates a new REST endpoint, which is accessible via <code>http(s)://{xl-release-hostname}:{port}/{[context-path]}/api/extension/test/demo</code>.</p>
+<p>Every endpoint should be represented with <code>&lt;endpoint&gt;</code> element which can contain following attributes:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path</code></td>
+<td>Yes</td>
+<td>Relative REST path which be exposed to run the Jython script</td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td>No</td>
+<td>HTTP method type (GET, POST, DELETE, PUT); default value is GET</td>
+</tr>
+<tr>
+<td><code>script</code></td>
+<td>Yes</td>
+<td>Relative path to the Jython script in the classpath</td>
+</tr>
+</tbody>
+</table></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>Declare custom REST endpoints in XL Release</h3>
+    </hgroup>
+    <article ><h3>Objects available in the context</h3>
+<p>In a script you have access to the following objects:</p>
+<ul>
+<li>request: <a href="/jython-docs/#!/xl-deploy/4.7.x/service/com.xebialabs.xlplatform.endpoints.JythonRequest">JythonRequest</a></li>
+<li>response: <a href="https://docs.xebialabs.com/jython-docs/#!/xl-deploy/4.7.x/service/com.xebialabs.xlplatform.endpoints.JythonResponse">JythonResponse</a></li>
+</ul>
+<p>y XL Release services.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>Declare custom REST endpoints in XL Release</h3>
+    </hgroup>
+    <article ><h3>HTTP response</h3>
+<p>The server returns a HTTP response of type <code>application/json</code> containing a JSON object with the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>entity</code></td>
+<td>Serialized value that is set in <code>response.entity</code> during script execution. XL Release takes care about serialization of styard JSON data types: Number, String, Boolean, Date, Array, Dictionary, y udm.ConfigurationItem.</td>
+</tr>
+<tr>
+<td><code>stdout</code></td>
+<td>Text that was sent to styard output during the execution.</td>
+</tr>
+<tr>
+<td><code>stderr</code></td>
+<td>Text was sent to styard error during the execution.</td>
+</tr>
+<tr>
+<td><code>exception</code></td>
+<td>Textual representation of exception that was thrown during script execution.</td>
+</tr>
+</tbody>
+</table></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Jython y REST API</h2>
+      <h3>Declare custom REST endpoints in XL Release</h3>
+    </hgroup>
+    <article ><h3>HTTP status code</h3>
+<p>You can explicitly set an HTTP status code via <code>response.statusCode</code>. If it is not set explicitly y the script executes smoothly, the client will receive <code>200</code>. In the case of unhyled exceptions, the client will receive <code>500</code>.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="title-slide segue nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h1>Personalización</h1>
+        <h2>http://www.ushiro-labs.com/</h2>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Crea tu propio plugin</h3>
+    </hgroup>
+    <article ><p>XL Release allows you to add custom task types that appear in the user interface y integrate seamlessly with other Tareas in the release flow. You can use custom Tareas to integrate with third-party components. For example, XL Release includes JIRA Integración Tareas, which are a set of custom Tareas.</p>
+<p>Custom Tareas are written in the Python language.</p>
+<p>To create a custom task, you need:</p>
+<ul>
+<li>The definition of the task y its properties</li>
+<li>The implementation of the task in a Python script</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Task definition</h3>
+    </hgroup>
+    <article ><p>Custom Tareas are stored in the <code>ext</code> or <code>plugins</code> directory of XL Release server:</p>
+<ul>
+<li><code>ext</code> is used when you are developing a custom task. It contains custom task definitions in a file called <code>synthetic.xml</code>. Python scripts are placed in subdirectories of <code>ext</code>.</li>
+<li><code>plugins</code> contains bundled custom Tareas that are packaged in a single zip file with extension <code>.jar</code></li>
+</ul>
+<p>This is an example of the layout of the <code>ext</code> directory:</p>
+<pre><code>synthetic.xml
+jira/
+   CreateIssue.py
+   UpdateIssue.py
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Sample custom task</h3>
+    </hgroup>
+    <article ><p>You define the custom task in XML in <code>synthetic.xml</code>. As an example, this is the definition of the "Create Jira Issue" task:</p>
+<pre><code>  &lt;type type="jira.CreateIssue" extends="xlrelease.PythonScript"&gt;
+    &lt;property name="jiraServer"  category="input" label="Server" referenced-type="jira.Server"
+              kind="ci"/&gt;
+    &lt;property name="username"    category="input"/&gt;
+    &lt;property name="password"    category="input" kind="string" password="true" /&gt;
+    &lt;property name="project"     category="input"/&gt;
+    &lt;property name="title"       category="input"/&gt;
+    &lt;property name="Descripción" category="input" size="large" /&gt;
+    &lt;property name="issueType"   category="input" default="Task"/&gt;
+
+    &lt;property name="issueId"     category="output"/&gt;
+  &lt;/type&gt;
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Synthetic element</h3>
+    </hgroup>
+    <article ><p>The <code>&lt;synthetic&gt;</code> element is the root node. It contains the XML grammar definitions y should not be changed. For XL Deploy users: this is the same definition language that is used to extend XL Deploy.</p>
+<p>The <code>&lt;type&gt;</code> element in <code>&lt;synthetic&gt;</code> defines the custom task. The <code>type</code> attribute defines the name of the custom task y is always of the form <code>prefix.TaskName</code>.</p>
+<p>The prefix is the category of the task (for example, 'jira'). It should be in lowercase.</p>
+<p>The task name is a descriptive name of the task (for example, "CreateIssue"). It should be in camel case.</p>
+<p>The attribute <code>extends="xlrelease.PythonScript"</code> defines this type as a custom task for XL Release. Do not change it.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Property element</h3>
+    </hgroup>
+    <article ><p>Next are the properties. They are defined as nested <code>&lt;property&gt;</code> elements. The following attributes can be set on each property:</p>
+<ul>
+<li><code>name</code>: Name of the property. This is also the name of the variable by which it is referred in the Python script.</li>
+<li><code>category</code>: XL Release supports two categories:<ul>
+<li><code>input</code>: Appear in the task in the XL Release UI y must be specified before the task starts. They are then passed to the Python script.</li>
+<li><code>output</code>: Can be set in the Python script. When the script completes, they can be copied into release variables in XL Release.</li>
+</ul>
+</li>
+<li><code>label</code>: Label used in the XL Release UI. If you do not specify a label, XL Release will attempt to make a readable version of the property name. For example, the "issueType" property will appear as "Issue Type" in the UI.</li>
+<li>...</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Property element</h3>
+    </hgroup>
+    <article ><p>Properties continued ...</p>
+<ul>
+<li><code>Descripción</code>: Help text Explicando the property in more detail. This will appear in the UI.</li>
+<li><code>kind</code>: The property type, which is <code>string</code>, <code>int</code>, <code>boolean</code>, or <code>ci</code>. If omitted, this attribute defaults to <code>string</code>.</li>
+<li><code>password</code>: Set this attribute to <code>true</code> to instruct XL Release to treat the property as a password. The content of password fields are obscured in the UI y encrypted in network traffic y storage.</li>
+<li><code>size</code>: Indicates how much space the UI gives to the property. Supported levels are <code>default</code>, <code>small</code>, <code>medium</code>, y <code>large</code>.</li>
+<li><code>default</code>: The default value of the property.</li>
+<li><code>referenced-type</code>: Indicates the type of CI this property can reference (only apply if <code>kind</code> is set to <code>ci</code>).</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Add custom Tareas</h3>
+    </hgroup>
+    <article ><p>After you save <code>synthetic.xml</code> y restart the XL Release server, the custom task appears in the UI y you can add it to the release flow editor like any other task.</p>
+<p><img alt="Select custom task" src="images/select-custom-task.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Add custom Tareas</h3>
+    </hgroup>
+    <article ><p>This is how the above task definition looks like in the task details window:</p>
+<p><img alt="Jira task" src="images/jira-task-details.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpRequest</h3>
+    </hgroup>
+    <article ><p><code>HttpRequest</code> is a class provided by XL Release that is used to perform HTTP calls. It has the following API:</p>
+<pre><code>    class HttpRequest:
+        def __init__(self, params, username = None, password = None):
+            """
+            Builds an HttpRequest
+
+            :param params: an HttpConnection
+            :param username: the username
+                (optional, it will override the credentials defined on the HttpConnection object)
+            :param password: an password
+                (optional, it will override the credentials defined on the HttpConnection object)
+            """
+
+        ...
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpRequest - Continued ...</h3>
+    </hgroup>
+    <article ><pre><code>        def doRequest(self, **options):
+            """
+            Performs an HTTP Request
+
+            :param options: A keyword arguments object with the following properties :
+                method: the HTTP method : 'GET', 'PUT', 'POST', 'DELETE'
+                    (optional: GET will be used if empty)
+                context: the context url
+                    (optional: the url on HttpConnection will be used if empty)
+                body: the body of the HTTP request for PUT &amp; POST calls
+                    (optional: an empty body will be used if empty)
+                contentType: the content type to use
+                    (optional, no content type will be used if empty)
+                headers: a dictionary of headers key/values
+                    (optional, no headers will be used if empty)
+            :return: an HttpResponse instance
+            """
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpRequest - Continued ...</h3>
+    </hgroup>
+    <article ><pre><code>        def get(self, context, **options):
+            """
+            Performs an Http GET Request
+
+            :param context: the context url
+            :param options: the options keyword argument described in doRequest()
+            :return: an HttpResponse instance
+            """
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpRequest - Continued ...</h3>
+    </hgroup>
+    <article ><pre><code>        def post(self, context, body, **options):
+            """
+            Performs an Http POST Request
+
+            :param context: the context url
+            :param body: the body of the HTTP request
+            :param options: the options keyword argument described in doRequest()
+            :return: an HttpResponse instance
+            """
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpRequest - Continued ...</h3>
+    </hgroup>
+    <article ><pre><code>        def put(self, context, body, **options):
+            """
+            Performs an Http PUT Request
+
+            :param context: the context url
+            :param body: the body of the HTTP request
+            :param options: the options keyword argument described in doRequest()
+            :return: an HttpResponse instance
+            """
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpRequest - Continued ...</h3>
+    </hgroup>
+    <article ><pre><code>        def delete(self, context, **options):
+            """
+            Performs an Http DELETE Request
+
+            :param context: the context url
+            :param options: the options keyword argument described in doRequest()
+            :return: an HttpResponse instance
+            """
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpResponse</h3>
+    </hgroup>
+    <article ><pre><code>    class HttpResponse:
+        def getStatus(self):
+            """
+            Gets the status code
+            :return: the http status code
+            """
+
+        def getResponse(self):
+            """
+            Gets the response content
+            :return: the reponse as text
+            """
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpResponse - Continued ...</h3>
+    </hgroup>
+    <article ><pre><code>        def isSuccessful(self):
+            """
+            Checks if request successful
+            :return: true if successful, false otherwise
+            """
+
+        def getHeaders(self):
+            """
+            Returns the response headers
+            :return: a dictionary of all response headers
+            """
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>HttpResponse - Continued ...</h3>
+    </hgroup>
+    <article ><pre><code>        def errorDump(self):
+            """
+            Dumps the whole response
+            """
+</code></pre></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Further Personalización</h3>
+    </hgroup>
+    <article ><p>You can add the following properties to the <code>&lt;type&gt;</code> element to further customize your task:</p>
+<pre><code>&lt;type type="myplugin.MyTask" extends="xlrelease.PythonScript"&gt;
+    &lt;property name="scriptLocation" required="false" hidden="true" default="my/custom/dir/script.py" /&gt;
+    &lt;property name="iconLocation" required="false" hidden="true" default="my/custom/dir/icon.png" /&gt;
+    &lt;property name="taskColor" hidden="true" default="#9C00DB" /&gt;
+    ...
+</code></pre>
+<ul>
+<li><code>scriptLocation</code>: Specifies a custom script location that overrides the default rules.</li>
+<li><code>iconLocation</code>: Location of an icon file (PNG or GIF format) that is used in the UI for this task.</li>
+<li><code>taskColor</code>: The color to use for the task in the UI, specified in HTML hexadecimal RGB format.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Configuration type definition</h3>
+    </hgroup>
+    <article ><p>XL Release allows you to add custom configuration types in XML. Custom configuration types appear in the configuration screens, y custom Tareas can reference configuration instances. You can use custom configuration type Tareas to reference third-party component settings.</p>
+<p>For example, XL Release includes with JIRA Server y Jenkins Server, which are custom configuration types.</p>
+<p>To use a custom configuration type from a custom task, you need:</p>
+<ul>
+<li>The definition of the custom configuration type</li>
+<li>The reference to the configuration type in the custom task definition</li>
+<li>To create a configuration instance</li>
+<li>To reference the configuration instance from a custom task</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Configuration type definition</h3>
+    </hgroup>
+    <article ><p>You define the custom configuration type in XML in <code>synthetic.xml</code>. For example, this is the definition of the "Jira Server" y "Jenkins Server" types:</p>
+<pre><code>&lt;type type="jira.Server" extends="configuration.HttpConnection"/&gt;
+&lt;type type="jenkins.Server" extends="configuration.HttpConnection"/&gt;
+</code></pre>
+<p>Each configuration type must extend the root configuration type <code>xlrelease.Configuration</code> or <code>configuration.HttpConnection</code>.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Configuration type definition</h3>
+    </hgroup>
+    <article ><p>In the example, the "Jira Server" y "Jenkins Server" types extend <code>configuration.HttpConnection</code>, which defines these properties:</p>
+<ul>
+<li><code>url</code>: The address where the server is reachable.</li>
+<li><code>username</code>: The login user ID on the server.</li>
+<li><code>password</code>: The login user password on the server.</li>
+<li><code>proxyHost</code>: The http proxy host</li>
+<li><code>proxyPort</code> the http proxy port</li>
+</ul>
+<p>The <code>virtual="true"</code> attribute means that this type will not appear in the UI y that we can not create an instance of this type.</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Reference configuration type from custom task definition</h3>
+    </hgroup>
+    <article ><p>To reference a custom configuration type from a custom task, you must add a specific property to the custom task definition in <code>synthetic.xml</code>. For example, this is the "Create Jira issue" definition:</p>
+<pre><code>&lt;type type="jira.CreateIssue" extends="xlrelease.PythonScript"&gt;
+    &lt;property name="jiraServer" category="input" label="Server" referenced-type="jira.Server" kind="ci"/&gt;
+
+    ...
+&lt;/type&gt;
+</code></pre>
+<p>The required attributes to refer to a custom configuration type are:</p>
+<ul>
+<li><code>kind="ci"</code>: Specifies that this property is a reference.</li>
+<li><code>referenced-type="your.Type"</code>: Specifies which configuration type can be referenced in this property.</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Configuration page</h3>
+    </hgroup>
+    <article class="columns-2"><p>Use the <strong>Configuration</strong> page to configure objects that a custom task can reference (such as Jira Tareas or Jenkins Tareas). This page is accessible to users with Admin permissions.</p>
+<p>The page shows the configuration types that are currently available y allows you to create instances of the types.</p>
+<p><img alt="Configurations list" src="images/configurations-list.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Configuration page</h3>
+    </hgroup>
+    <article class="columns-2"><ul>
+<li>XL Release includes two configuration types: Jira Server y Jenkins Server.</li>
+<li>To add a configuration instance, click <strong>Add</strong> under the type that you need. You can then set properties:</li>
+<li>Enter a symbolic name in the <strong>Title</strong> box. In the XL Release application, the configuration instance is referred to by this name.</li>
+<li>To edit or delete an instance, click its name.</li>
+</ul>
+<p><img alt="Configuration details" src="images/jira-configuration-details.png" /></p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Getting results using a configuration object</h3>
+    </hgroup>
+    <article ><p>If your task definition has a <code>configuration object</code> defined using:</p>
+<pre><code>    &lt;property name="jiraServer" category="input" label="Server" referenced-type="jira.Server" kind="ci"/&gt;
+</code></pre>
+<p>You can use the jiraServer instance like that:</p>
+<pre><code>    request = HttpRequest(jiraServer)
+    response = request.get('/api/Tareas', contentType = 'application/json')
+    content = response.getResponse()
+    status = response.getStatus()
+</code></pre>
+<p><code>HttpRequest</code> will then use the settings of the HttpConnection</p></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <aside class="gdbar"><img src="images/xebialabs_icon_288.png"></aside>
+    <hgroup class="auto-fadein">
+      
+        <h2>Personalización</h2>
+        <h3>Exercise: Create your set current date plugin</h3>
+      
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Personalización</h2>
+      <h3>Exercise: Create your set current date plugin</h3>
+    </hgroup>
+    <article ><ul>
+<li>This exercise is free format</li>
+<li>Create an XL Release plugin that updates a variable with the current date</li>
+<li>The task should have the following input properties<ul>
+<li><code>timezone</code></li>
+<li><code>date format</code></li>
+</ul>
+</li>
+<li>
+<p>The output variable should be:</p>
+<ul>
+<li><code>generated date</code></li>
+</ul>
+</li>
+<li>
+<p>Don't forget to give the task your own color, y icon.</p>
+</li>
+</ul></article>
+    <aside class="note">
+      <section></section>
+    </aside>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <aside class="gdbar right"><img src="images/xebialabs_icon_288.png"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>&lt;Thank You!&gt;</h2>
+    <p class="auto-fadein" data-config-contact><!-- populated from slide_config.json --></p>
+  </article>
+</slide>
+
+<!-- <slide class="logoslide dark nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo_white.png"></span>
+  </article>
+</slide> -->
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
